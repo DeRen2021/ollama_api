@@ -1,0 +1,10 @@
+.env
+
+ollama_venv/
+
+__pycache__/
+
+note.txt
+
+test_file/
+
