@@ -71,7 +71,7 @@ NGROK_DOMAIN=your_static_domain(if_any)
 1. Ensure Ollama service is running
 2. Start the API service:
 ```bash
-python main.py
+python main_ngrok.py
 ```
 
 The service will start on `http://localhost:8000` and be exposed via ngrok.
