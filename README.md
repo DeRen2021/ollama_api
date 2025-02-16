@@ -104,7 +104,7 @@ uvicorn main_cloudflare:app --host 0.0.0.0 --port 8000 --reload
 
 3. Run Cloudflare Tunnel:
 ```bash
-cloudflared tunnel --config my_tunnel.yml run my-tunnel
+cloudflared tunnel --config cloudflared/my_tunnel.yml run my-tunnel
 ```
 
 ### API Endpoints
