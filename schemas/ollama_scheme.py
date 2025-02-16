@@ -1,7 +1,9 @@
 from pydantic import BaseModel, ValidationError, field_validator
 import ollama
 from functools import lru_cache
-from typing import List
+from typing import List, Optional
+
+allowed_roles = ["user", "assistant","system"]
 
 #add some refresh scheme maybe?
 @lru_cache(maxsize=1)
@@ -9,9 +11,21 @@ def get_available_models() -> List[str]:
         return [model.model for model in ollama.list().models]
 
 
-class Message(BaseModel):
+class ChatMessage(BaseModel):
+    role: str
+    content: str
+
+    @field_validator("role")
+    @classmethod
+    def validate_role(cls, v):
+        if v not in allowed_roles:
+            raise ValueError(f"Invalid role: {v}. Must be one of {allowed_roles}.")
+        return v
+    
+class ChatCompletionRequest(BaseModel):
     model: str
-    message: str
+    messages: List[ChatMessage]
+    temperature: Optional[float] = None
 
     @field_validator('model')
     @classmethod

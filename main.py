@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.concurrency import run_in_threadpool
 from contextlib import asynccontextmanager
 
-from schemas.message import Message, Response, ErrorResponse, get_available_models
+from schemas.ollama_scheme import Message, Response, ErrorResponse, get_available_models
 import ollama
 import asyncio
 
