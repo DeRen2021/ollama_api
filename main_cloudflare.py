@@ -14,7 +14,7 @@ from llm.lm_studio_endpoint import call_lm_studio_chat,parse_lm_studio_response
 from schemas.lm_studio_scheme import ChatCompletionRequest, Response, ErrorResponse, get_available_models
 
 
-from config.config import NGROK_DOMAIN, NGROK_AUTHTOKEN,PUBLIC_PORT
+from config.config import PUBLIC_PORT
 
 from pyngrok import ngrok
 import uvicorn
