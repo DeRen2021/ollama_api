@@ -1,0 +1,12 @@
+# Cloudflare Tunnel Configuration Example
+tunnel: your-tunnel-id
+credentials-file: /Users/username/.cloudflared/your-tunnel-id.json
+
+# Ingress rules
+ingress:
+  # Main application
+  - hostname: your-domain.example.com
+    service: http://localhost:8000
+  
+  - service: http_status:404 
+
